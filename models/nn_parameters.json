@@ -1,0 +1,1 @@
+{"hidden_sizes": [32, 16], "use_batch_norm": false, "dropout_rate": 0.5, "use_dropout": true, "lr": 0.01, "input_size": 25}
