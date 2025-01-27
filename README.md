@@ -76,7 +76,7 @@ pip install -r requirements.txt
 ## Usage
 
 ### Data Preparation
-Place the raw data files in `../data/archive/`. Ensure the dataset contains the following columns:
+Place the raw data files in `data`. Ensure the dataset contains the following columns:
 
 - **Numeric Columns**: `age`, `trestbps`, `chol`, `thalach`, `oldpeak`
 - **Binary Columns**: `sex`, `fbs`, `exang`
@@ -86,7 +86,8 @@ Place the raw data files in `../data/archive/`. Ensure the dataset contains the 
 ### Training the Model
 Run the `train_model.py` script:
 ```bash
-python src/train_model.py
+cd src
+python train_model.py
 ```
 This will:
 - Preprocess the data.
@@ -96,7 +97,8 @@ This will:
 ### Running the API
 Start the FastAPI application:
 ```bash
-python src/app.py
+cd src
+python app.py
 ```
 The API will be available at `http://127.0.0.1:7676/`.
 
