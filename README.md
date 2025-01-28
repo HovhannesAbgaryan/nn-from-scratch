@@ -1,7 +1,7 @@
 
-# Heart Disease Detection with Neural Networks
+# Heart Disease Risk Prediction with Neural Networks
 
-This project implements a pipeline for detecting heart disease using a neural network built from scratch in PyTorch. It includes data preprocessing, model training, and an API for real-time predictions.
+This project implements a pipeline for predicting heart disease risk using a neural network built from scratch in PyTorch on [Heart Disease Dataset](https://www.kaggle.com/datasets/hosammhmdali/heart-disease-dataset). It includes data preprocessing, model training, and an API for real-time predictions.
 
 ---
 
@@ -10,20 +10,20 @@ This project implements a pipeline for detecting heart disease using a neural ne
 ```
 src/
 ├── nn_from_scratch/
-│   ├── train/
-│   │   ├── data_preprocessing.py
-│   │   ├── models.py
-│   │   ├── train.py
 │   ├── api/
 │   │   ├── load_nn.py
 │   │   ├── model.py
-├── train_model.py
+│   ├── train/
+│   │   ├── models.py
+│   │   ├── preprocessing.py
+│   │   ├── train.py
 ├── app.py
+├── model_train.py
 ```
 
 ### Key Components
 
-1. **Data Preprocessing (`data_preprocessing.py`)**
+1. **Data Preprocessing (`preprocessing.py`)**
     - Handles data loading, cleaning, and preprocessing.
     - Splits the data into training, validation, and testing sets.
     - Saves preprocessed data and preprocessing pipelines for reuse.
@@ -49,7 +49,7 @@ src/
     - Defines a structured input schema for heart disease prediction features.
     - Provides validation for input data.
 
-7. **Training Entry Point (`train_model.py`)**
+7. **Training Entry Point (`model_train.py`)**
     - Script to start the training process with specified data and model paths.
 
 ---
@@ -57,14 +57,16 @@ src/
 ## Installation
 
 ### Prerequisites
-- Python == 3.11
+- [Python](https://www.python.org/) == 3.11
+- [Numpy](https://numpy.org/)
+- [Pandas](https://pandas.pydata.org/)
+- [Scikit-learn](https://scikit-learn.org/stable/)
 - [PyTorch](https://pytorch.org/)
-- FastAPI
-- Uvicorn
-- Scikit-learn
-- Joblib
-- Pandas
-- Numpy
+- [mypy](https://mypy-lang.org/)
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [Pydantic](https://docs.pydantic.dev/latest/)
+- [Joblib](https://joblib.readthedocs.io/en/stable/)
+- [Uvicorn](https://www.uvicorn.org/)
 
 ### Install Dependencies
 ```bash
@@ -83,11 +85,13 @@ Place the raw data files in `data`. Ensure the dataset contains the following co
 - **Categorical Columns**: `cp`, `restecg`, `slope`, `ca`, `thal`
 - **Target Column**: `target`
 
+For more information about columns, refer [here](https://archive.ics.uci.edu/dataset/45/heart+disease).
+
 ### Training the Model
-Run the `train_model.py` script:
+Run the `model_train.py` script:
 ```bash
 cd src
-python train_model.py
+python model_train.py
 ```
 This will:
 - Preprocess the data.
@@ -100,7 +104,7 @@ Start the FastAPI application:
 cd src
 python app.py
 ```
-The API will be available at `http://127.0.0.1:7676/`.
+The API will be available at `http://127.0.0.1:7878/`.
 
 #### API Endpoints
 1. **Single Prediction**

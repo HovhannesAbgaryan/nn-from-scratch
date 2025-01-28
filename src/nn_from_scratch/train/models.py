@@ -5,11 +5,10 @@ from typing import Sequence, Union
 
 class Block(nn.Module):
     def __init__(self, input_size: int, output_size: int, use_batch_norm: bool = True, use_dropout: bool = False,
-                 dropout_rate: float = 0.2,
-                 activation: str = "relu"):
+                 dropout_rate: float = 0.2, activation: str = "relu"):
 
         if activation not in ["relu", "sigmoid"]:
-            raise ValueError("activation must be either 'relu' or 'sigmoid'")
+            raise ValueError("Activation function must be either 'relu' or 'sigmoid'")
 
         super(Block, self).__init__()
         self.linear = nn.Linear(input_size, output_size)
@@ -41,6 +40,7 @@ class HeartDiseaseDetector(nn.Module):
                  use_batch_norm: bool = True,
                  use_dropout: bool = False,
                  dropout_rate: float = 0.2):
+
         super(HeartDiseaseDetector, self).__init__()
         self.layers = nn.ModuleList()
 
@@ -53,8 +53,7 @@ class HeartDiseaseDetector(nn.Module):
             self.layers.append(Block(input_size, hidden_sizes[0], use_batch_norm, use_dropout, dropout_rate))
 
             for i in range(1, len(hidden_sizes)):
-                self.layers.append(
-                    Block(hidden_sizes[i - 1], hidden_sizes[i], use_batch_norm, use_dropout, dropout_rate))
+                self.layers.append(Block(hidden_sizes[i - 1], hidden_sizes[i], use_batch_norm, use_dropout, dropout_rate))
 
             self.layers.append(Block(hidden_sizes[-1], output_size, False, False, dropout_rate, activation="sigmoid"))
 

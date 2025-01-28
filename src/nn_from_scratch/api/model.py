@@ -15,8 +15,7 @@ class HeartData(BaseModel):
     restecg: Optional[int] = Field(None, ge=0, le=2, description="Resting electrocardiographic results (0-2)")
     slope: Optional[int] = Field(None, ge=0, le=2, description="Slope of the peak exercise ST segment (0-2)")
     ca: Optional[int] = Field(None, ge=0, le=3, description="Number of major vessels (0-3) colored by fluoroscopy")
-    thal: Optional[int] = Field(None, ge=0, le=2,
-                                description="Thalassemia (0 = normal, 1 = fixed defect, 2 = reversible defect)")
+    thal: Optional[int] = Field(None, ge=0, le=2, description="Thalassemia (0 = normal, 1 = fixed defect, 2 = reversible defect)")
 
     class Config:
         json_schema_extra = {
