@@ -6,3 +6,6 @@ torch==2.5.1
 tqdm==4.67.1
 scikit-learn==1.6.1
 uvicorn==0.34.0
+joblib==1.4.2
+pydantic==2.10.6
+mypy==1.14.1
